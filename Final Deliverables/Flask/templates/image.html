@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Predict</title>
+    <script src="https://kit.fontawesome.com/5e5d8f9e22.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/image.css') }}" rel="stylesheet">
+
+<style>
+*{
+    padding:0;
+    margin:0;
+    font-family:'Poppins' ;
+}
+
+body{
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/311/699/596/fruit-allsorts-pineapple-melon-wallpaper-preview.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Rectangle{
+    position: absolute;
+    width: 100%;
+    height: 83px;
+    left: 0px;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid #424242;
+    backdrop-filter: blur(37px);
+}
+
+.Nutritional_Analzer{
+position: absolute;
+width: 325px;
+height: 36px;
+left: 110px;
+top: 23px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 1000;
+font-size: 30px;
+line-height: 100%;
+
+letter-spacing: -0.006em;
+color: hwb(0 91% 8%);
+}
+
+.Rectangle7{
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+}
+
+.fa-upload{
+    position: relative;
+    right:10px;
+}
+
+.image2{
+    position: relative;
+    top:40px;
+    left:100px;
+}
+
+.Rectangle .image_5{
+    position: absolute;
+    width: 52px;
+    height: 47.33px;
+    left: 35.11px;
+    top: 17.33px;
+
+}
+
+.content{
+position: absolute;
+width: 681px;
+height: 234px;
+left: 77px;
+top: 220px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight:1000;
+font-size: 50px;
+line-height: 78px;
+display: flex;
+align-items: center;
+letter-spacing: -0.006em;
+
+color: #FFFFFF;
+
+}
+
+.Rectangle4{
+    position: absolute;
+width: 376px;
+height: 332px;
+left: 800px;
+top: 166px;
+background: #FFFFFF;
+border-radius: 24px;
+}
+button {
+position:relative;
+width: 102px;
+height: 30px;
+left:125px;
+top:80px;
+background: #FF7A00;
+border-radius: 18px;
+border-color: #FF7A00;
+}
+
+
+button .load{
+    position: relative;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+h1 {
+    font-size: 40px;
+    position:relative;
+    right:50px;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    font-family: 'Poppins';
+    text-align: center;
+    animation: blink 11s infinite;
+    -webkit-animation: blink 11s infinite;
+  }
+
+  @-webkit-keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+
+  #prevText{
+    position: relative;
+    left:300px;
+    bottom: 300px;
+    transform: translateX(-50%);
+    width:90%;
+    font-size: 32px;
+    text-align: center;
+
+  }
+
+#file{
+  position: relative;
+  left:70px;
+  top:60px;
+}
+
+</style>
+<title>NUTRITION ANALYZER</title>
+</head>
+<body>
+
+<div class="Rectangle">
+        <div class="image_5">
+            <img src="https://www.shutterstock.com/shutterstock/photos/516483652/display_1500/stock-vector-fruit-logo-design-fruit-with-magnifying-glass-logo-design-516483652.jpg" width="52px" height="47.33px">
+        </div>
+       <div class="Nutritional_Analzer"><h1>NutriFact</h1></div>
+    </div>
+    <div class="content">UPLOAD IMAGE TO ANALYZE NUTRITION OF THE FRUITS</div>
+    <div class="Rectangle4">
+        <div class="image2">
+            <img src="https://cdn-icons-png.flaticon.com/512/3306/3306588.png" height="150px" width="150px">
+        </div>
+            <form method="post" action="{{url_for('imageprediction')}}" enctype="multipart/form-data">
+  <input type="file" id="file" name="image" accept="image/*" onchange="loadFile(event)">
+            <button>SUBMIT</button>
+</form>
+</div>
+<script>
+    var textBox = document.getElementById("textBox");
+    var imgBox = document.getElementById("imgBox");
+    textBox.onkeyup=textBox.onkeypress=function(){
+        document.getElementById("prevText").innerHTML=this.value;
+    }
+    var loadFile=  function(event){
+      imgBox.style.backgroundImage = "url(" +URL.createObjectURL(event.target.files[0])+ ")";
+</script>
+</body>
+</html>
