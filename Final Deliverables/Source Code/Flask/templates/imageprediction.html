@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Predict</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/5e5d8f9e22.js" crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='css/imageprediction.css') }}" rel="stylesheet">
+
+<style>
+*{
+    padding:0;
+    margin:0;
+}
+
+body {
+        background-image: url('https://c4.wallpaperflare.com/wallpaper/311/699/596/fruit-allsorts-pineapple-melon-wallpaper-preview.jpg');
+       background-repeat: no-repeat;
+       background-size: cover;
+
+        font-family:'Poppins';
+}
+.Nutritional_Analzer{
+    position: absolute;
+    width: 325px;
+    height: 36px;
+    left: 110px;
+    top: 23px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 30px;
+    line-height: 100%;
+    /* identical to box height, or 36px */
+
+    letter-spacing: -0.006em;
+
+    color: hwb(0 91% 8%);
+}
+ .Rectangle .image_5{
+    position: absolute;
+    width: 52px;
+    height: 47.33px;
+    left: 35.11px;
+    top: 17.33px;
+
+}
+.Rectangle{
+    position: absolute;
+width: 100%;
+height: 83px;
+left: 0px;
+top: 0px;
+
+background: rgba(255, 255, 255, 0.05);
+border-bottom: 1px solid #424242;
+backdrop-filter: blur(37px);
+}
+h1 {
+    font-size: 40px;
+    position:relative;
+    right:50px;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    font-family: 'Poppins';
+    text-align: center;
+    animation: blink 11s infinite;
+    -webkit-animation: blink 11s infinite;
+  }
+
+  @-webkit-keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+
+  @keyframes blink {
+    20%,
+    24%,
+    55% {
+      color: #111;
+      text-shadow: none;
+    }
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+      color: #fff6a9;
+    }
+  }
+  .list{
+      position: relative;
+      top:280px;
+      left:30px;
+      width: 300px;
+      height: 230px;
+      background-color: white;
+      border-radius: 24px;
+      border: 3px solid #FF7A00;
+
+  }
+  .output{
+       position: relative;
+       left:500px;
+       width: 420px;
+       height: 446px;
+       bottom:140px;
+       background-color: white;
+       border-radius: 24px;
+       border: 3px solid #FF7A00;
+}
+
+.choose{
+    position: relative;
+    bottom:470px;
+    left:59px;
+    width: 90px;
+    height: 34px;
+    background: #FF7A00;
+    border-radius: 12px;
+}
+
+.type{
+    color:white;
+    position: relative;
+    left:14px;
+    font-weight: 1000;
+    top:5px;
+}
+.value{
+position: relative;
+      top:5px;
+      left:40px;
+ object-fit:cover;
+
+}
+</style>
+
+    <title>OUTPUT</title>
+</head>
+<body>
+   <div class="img"></div>
+<div class="Rectangle">
+        <div class="image_5">
+            <img src="https://www.shutterstock.com/shutterstock/photos/516483652/display_1500/stock-vector-fruit-logo-design-fruit-with-magnifying-glass-logo-design-516483652.jpg" width="52px" height="47.33px">
+        </div>
+       <div class="Nutritional_Analzer"><h1>NutriFact</h1></div>
+    </div>
+
+
+   <div class="header">
+       <a href="{{ url_for('home')}}">Home</a>
+    <a  class="active" href="{{ url_for('image')}}">Classify</a>
+   </div>
+
+
+   {% if flag%}
+  <div class="list">
+      <p>The Prediction is {{pred}}</p>
+        <div class="value"><img src="{{value}}"  alt="a fruit" justify-content="center"  width="200px"
+      height="200px" ;></div>
+       </div>
+   {% endif %}
+
+
+    <div class="output"><div class="results">
+        <p style="padding-top: 20px; color:red;text-size:30px"><h2 style="color:red;padding-left: 40px; ">Nutrition Content: <h4><b><h4 style="color:black;padding-left: 40px;">
+        {{fruit}}<br>
+        {{serving_size}}<br>
+        {{energy}}<br>
+        {{fat}}<br>
+        {{saturated_fat}}<br>
+        {{mono_unsaturated_fat}}<br>
+        {{poly_unsaturated_fat}}<br>
+        {{carbohydrates}}<br>
+        {{sugar}}<br>
+        {{fiber}}<br>
+        {{protein}}<br>
+        {{sodium}}<br>
+        {{cholesterol}}<br>
+        {{potassium}}<br>
+        {{output}}<br></h4></b></h4></h2>
+		</div>
+		<br>
+		<br></div>
+    <div class="choose">
+        <div class="type">RESULT</div>
+    </div>
+
+
+    </body>
+    </html>
+
+
